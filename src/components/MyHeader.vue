@@ -1,7 +1,8 @@
 <template>
   <section>
-    <div class="header-containser">
-      <img src="@/assets/img/logo.svg" />
+    <div class="header-container">
+      <img class="heder-bourger" src="@/assets/img/burger.svg" />
+      <img class="header-logo" src="@/assets/img/logo.svg" />
       <nav class="header-nav">
         <li>ПРОДУКТЫ</li>
         <li>ЦВЕТА</li>
@@ -45,17 +46,22 @@ li {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.header-containser {
+.header-container {
   display: flex;
   padding: 2rem 2.7rem;
   align-items: center;
 }
+.heder-bourger {
+  height: 24px;
+  width: 24px;
+}
+
 .header-nav {
   display: flex;
   margin: 0 auto;
 }
-.spaser{
-  margin:  0 auto;
+.spaser {
+  margin: 0 auto;
 }
 .header-phone {
   text-align: start;
@@ -101,5 +107,44 @@ li {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #1f2020;
+}
+.heder-bourger{
+  display: none;
+}
+@media (max-width: 1160px) {
+  .header-nav li {
+    margin-right: 0.7rem;
+  }
+  .spaser {
+    display: none;
+  }
+  .header-nav {
+    margin-left: auto;
+  }
+}
+@media (max-width: 1030px) {
+  .heder-bourger{
+    display: block;
+  }
+  .header-nav {
+    display: none;
+  }
+  .header-phone {
+    display: none;
+  }
+  .header-logo {
+    margin: auto;
+    height: 1.5rem;
+  }
+  .header-icons {
+    margin-left: 0;
+  }
+  .header-icons img {
+    display: none;
+  }
+  .header-containser {
+    padding: 1.5rem 1.5rem;
+    align-items: center;
+  }
 }
 </style>
