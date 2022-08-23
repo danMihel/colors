@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 li {
   list-style-type: none;
   margin-right: 1.5rem;
@@ -142,9 +142,11 @@ li {
   .header-icons img {
     display: none;
   }
-  .header-containser {
-    padding: 1.5rem 1.5rem;
-    align-items: center;
+  .header-container {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 1.5rem;
+    border-bottom: 1px solid rgb(242, 242, 242);
   }
 }
 </style>
