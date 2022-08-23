@@ -67,6 +67,5 @@ export default {
   line-height: 100%;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1f2020;
 }
 </style>

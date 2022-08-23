@@ -41,7 +41,6 @@ export default {
   font-size: 16px;
   line-height: 112%;
   letter-spacing: 0.02em;
-  color: #1f2020;
   margin-bottom: 1rem;
 }
 .product-price-container {
@@ -58,7 +57,6 @@ export default {
   font-weight: 600;
   font-size: 16px;
   line-height: 100%;
-  color: #1f2020;
 }
 .order-btn {
   border-radius: 8px;

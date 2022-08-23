@@ -42,7 +42,6 @@ li {
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
-  color: #1f2020;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor:pointer
@@ -82,7 +81,6 @@ li {
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
-  color: #1f2020;
   opacity: 0.3;
   cursor:pointer
 }
@@ -111,7 +109,6 @@ li {
   line-height: 15px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1f2020;
 }
 .heder-bourger{
   display: none;

@@ -1,30 +1,28 @@
 <template>
-  <Shop/>
+  <Shop />
 </template>
 
 <script>
 import Shop from "./components/Shop.vue";
 
-
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Shop,
-}
-}
+  },
+};
 </script>
 
 <style>
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 #app {
-  font-family: 'Inter';
+  font-family: "Inter";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  color: #2c3e50;
+  color: #1f2020;
 }
 </style>
