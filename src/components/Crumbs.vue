@@ -29,6 +29,7 @@ export default {
   text-transform: uppercase;
   opacity: 0.3;
   color: #ffffff;
+  cursor:pointer
 }
 .crumbs-container li:first-child {
   list-style-type: none;

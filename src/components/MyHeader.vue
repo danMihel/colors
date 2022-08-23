@@ -45,7 +45,9 @@ li {
   color: #1f2020;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  cursor:pointer
 }
+
 .header-container {
   display: flex;
   padding: 2rem 2.7rem;
@@ -82,6 +84,7 @@ li {
   line-height: 100%;
   color: #1f2020;
   opacity: 0.3;
+  cursor:pointer
 }
 .header-icons {
   display: flex;
@@ -90,9 +93,11 @@ li {
 }
 .header-icons img {
   margin-right: 1.5rem;
+  cursor:pointer
 }
 
 .header-icons__cart {
+  cursor:pointer;
   display: flex;
   border-radius: 50%;
   width: 24px;
