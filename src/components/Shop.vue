@@ -7,9 +7,12 @@
       <ChoiceBar />
     </div>
     <div class="products-container">
+      <ProductHeader/> 
+          <div class="products-list">
       <div  v-for="item in $store.state.products" :key="item.id">
         <Product :product="item" :key="item.title"/>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -19,6 +22,7 @@ import Slider from "./Slider.vue";
 import Crumbs from "./Crumbs.vue";
 import ChoiceBar from "./ChoiceBar.vue";
 import Product from "./Product.vue";
+import ProductHeader from "./ProductHeader.vue";
 export default {
   name: "Shop",
   components: {
@@ -26,11 +30,15 @@ export default {
     Slider,
     Crumbs,
     ChoiceBar,
-    Product ,
-  },
+    Product,
+    ProductHeader
+},
 };
 </script>
 <style>
+.products-container{
+  width: 100%;
+}
 .product-wraper {
   margin-top: 4.7rem ;
   margin-left: 2rem;
@@ -42,9 +50,9 @@ export default {
   height: 100%;
   min-width: 170px;
 }
-.products-container {
+.products-list {
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
 }
@@ -52,9 +60,10 @@ export default {
   .chois-bar-container{
     display: none;
   }
-  .products-container{
-    justify-content: center;
-   
+  .product-wraper {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
+ 
 }
 </style>

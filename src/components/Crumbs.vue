@@ -40,7 +40,7 @@ export default {
   }
   .crumbs-container {
     margin-top: 1rem;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
   }
 }
 </style>

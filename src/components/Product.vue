@@ -48,7 +48,7 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-.product-price-container:hover .order-btn {
+.product-container:hover .order-btn {
   opacity: 1;
   transition: all 0.5s ease;
 }
@@ -82,6 +82,7 @@ export default {
     height: 17rem;
     width: 10rem;
     padding: 1rem;
+    margin: auto;
   }
   .order-btn {
     border-radius: 6px;
