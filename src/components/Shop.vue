@@ -57,13 +57,14 @@ export default {
   flex-wrap: wrap;
 }
 @media (max-width: 1030px) {
-  .chois-bar-container{
-    display: none;
-  }
   .product-wraper {
     margin-left: 1rem;
     margin-right: 1rem;
   }
- 
+}
+@media (max-width: 700px) {
+  .chois-bar-container{
+    display: none;
+  }
 }
 </style>
