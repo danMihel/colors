@@ -77,6 +77,7 @@ li {
   color: #1f2020;
 }
 .header-phone__subtitle {
+   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
