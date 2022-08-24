@@ -32,19 +32,29 @@ export default {
 </script>
 <style>
 .product-wraper {
-  margin-top: 4.7rem;
+  margin-top: 4.7rem ;
+  margin-left: 2rem;
+  margin-right: 2rem;
   display: flex;
 }
 .chois-bar-container {
-  margin-left: 4rem;
   margin-right: 8.5rem;
   height: 100%;
   min-width: 170px;
 }
 .products-container {
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
+}
+@media (max-width: 1030px) {
+  .chois-bar-container{
+    display: none;
+  }
+  .products-container{
+    justify-content: center;
+   
+  }
 }
 </style>

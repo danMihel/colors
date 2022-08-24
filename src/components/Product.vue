@@ -23,8 +23,8 @@ export default {
 </script>
 <style scoped>
 .product-img {
-  min-height: 200px;
-  min-width: 200px;
+  min-height: 12.5rem;
+  min-width: 12.5rem;
 }
 .product-container {
   display: flex;
@@ -33,7 +33,7 @@ export default {
   justify-content: space-between;
   height: 24.5rem;
   width: 17rem;
-  margin-bottom: 1rem;
+  padding: 1rem;
 }
 .product-title {
   font-style: normal;
@@ -68,5 +68,35 @@ export default {
   justify-content: center;
   opacity: 0;
   transition: all 0.5s ease;
+}
+@media (max-width: 1030px) {
+  .product-img {
+    min-height: 7rem;
+    min-width: 7rem;
+  }
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 17rem;
+    width: 10rem;
+    padding: 1rem;
+  }
+  .order-btn {
+    border-radius: 6px;
+    background: #f2f2f2;
+    height: 1.5em;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+   .order-btn img{
+    width: 1rem;
+    height: 1rem;
+   }
 }
 </style>
