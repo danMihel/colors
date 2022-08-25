@@ -29,7 +29,7 @@ export default {
 .product-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   height: 24.5rem;
   width: 17rem;
