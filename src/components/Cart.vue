@@ -1,7 +1,12 @@
 <template>
   <section>
     <div class="cart-wraper" v-if="show" @click.stop="hideForm">
-      <div class="cart-container" @click.stop></div>
+      <div class="cart-container" @click.stop>
+        <div class="cart-headr">
+                 <div class="cart-title">Корзина</div>
+                 <div>+</div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -39,10 +44,22 @@ export default {
 }
 .cart-container {
   float: right;
-  max-width: 37.5rem;
-  min-width: 19rem;
+  max-width: 80vw;
+  min-width: 30vw;
   height: 100%;
   background: #ffffff;
   opacity: 1;
+  padding: 2.5rem;
+}
+.cart-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 88%;
+  letter-spacing: -0.04em;
+}
+.cart-headr{
+    display: flex;
+    justify-content: space-between;
 }
 </style>
