@@ -37,6 +37,7 @@ export default {
   letter-spacing: -0.04em;
   margin-bottom: 3rem;
   margin-left: 1rem;
+  display: none;
 }
 .product-header-filter {
   display: none;
@@ -53,6 +54,9 @@ export default {
   }
   .product-header-filter {
     display: block;
+  }
+  .product-header-title{
+    display: block  ;
   }
 }
 </style>
