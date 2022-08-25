@@ -25,15 +25,16 @@ export default {
 .product-img {
   min-height: 12.5rem;
   min-width: 12.5rem;
+  margin: auto;
 }
 .product-container {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
   height: 24.5rem;
   width: 17rem;
-  padding: 1rem;
+
 }
 .product-title {
   font-style: normal;
@@ -52,7 +53,6 @@ export default {
   opacity: 1;
   transition: all 0.5s ease;
 }
-
 .product-price {
   font-weight: 600;
   font-size: 16px;

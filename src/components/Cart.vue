@@ -18,7 +18,7 @@
             v-for="item in $store.state.cart"
             :key="item.id"
           >
-            <CartProduct :product="item" :key="item.title" />
+            <CartProduct :cartProduct="item" :key="item.title" />
           </div>
         </div>
       </div>

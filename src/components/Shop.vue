@@ -54,11 +54,12 @@ export default {
   min-width: 170px;
 }
 .products-list {
-  width: 100%;
-  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
+  justify-content:space-between;
+  row-gap: 10px;
 }
+
 @media (max-width: 1030px) {
   .product-wraper {
     margin-left: 1rem;

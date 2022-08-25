@@ -1,9 +1,9 @@
 <template>
   <div class="cart-product">
-    <img class="cart-product__img" :src="product.image" />
+    <img class="cart-product__img" :src="cartProduct.image" />
     <div class="cart-product-title-group">
-      <div class="cart-product__title">{{ product.title }}</div>
-      <div class="cart-product__prise">{{ product.price }} ₽</div>
+      <div class="cart-product__title">{{ cartProduct.title }}</div>
+      <div class="cart-product__prise">{{ cartProduct.price }} ₽</div>
     </div>
     <div class="cart-product-btn-group">
       <div class="cart-product__btn">-</div>
@@ -19,7 +19,7 @@
 export default {
   name: "cart-product",
   props: {
-    product: {
+    cartProduct: {
       type: Object,
       require: true,
     },

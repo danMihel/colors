@@ -1,10 +1,10 @@
 <template>
-  <select class="select">
-    <option class="option">Сначала дорогие</option>
-    <option>Сначала недорогие</option>
-    <option>Сначала популярные</option>
-    <option>Сначала новые</option>
-  </select>
+  <div class="select">
+    <div class="option">Сначала дорогие</div>
+    <div>Сначала недорогие</div>
+    <div>Сначала популярные</div>
+    <div>Сначала новые</div>
+  </div>
 </template>
 <script>
 export default {
@@ -22,9 +22,6 @@ export default {
   text-align: right;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: none;
-  position: relative;
-  outline: none;
 }
 .option {
   padding: 1rem;
