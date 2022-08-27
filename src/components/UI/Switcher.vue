@@ -33,6 +33,7 @@ export default {
   align-items: center;
   margin-bottom: 1rem;
 }
+
 .switcher {
   height: 22px;
   width: 36px;
@@ -42,24 +43,29 @@ export default {
   transition-property: background-color;
   transition-duration: 0.2s;
 }
-.switcher:hover{
-    cursor:pointer
+
+.switcher:hover {
+  cursor: pointer
 }
+
 .switcher img {
   padding: 7px;
   transition-property: margin-left;
   transition-duration: 0.2s;
 }
+
 .on {
   background: #7bb899;
   transition-property: background-color;
   transition-duration: 0.2s;
 }
+
 .on img {
   margin-left: 0.85rem;
   transition-property: margin-left;
   transition-duration: 0.2s;
 }
+
 .switcher-text {
   font-style: normal;
   font-weight: 400;
@@ -67,5 +73,6 @@ export default {
   line-height: 100%;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  
 }
 </style>

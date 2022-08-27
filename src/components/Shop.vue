@@ -1,5 +1,5 @@
 <template>
-  <Cart />
+  <Cart :show="true" />
   <MyHeader />
   <Crumbs />
   <Slider />

@@ -1,21 +1,31 @@
 <template>
   <section>
     <h2 class="product-header-title">Краски</h2>
-    <div class="product-header-container">
-      <div class="product-header-counter">412 товаров</div>
-      <div class="product-header-filter">Фильтры</div>
-        <MySelect/>
+    <div class="product-header-wraper">
+      <div class="product-header-container">
+        <div class="product-header-counter">412 товаров</div>
+        <div class="product-header-filter">Фильтры</div>
+      </div>
+      <div>
+        <CustomSelect :options="['Сначала дорогие', 'Сначала недорогие', 'Сначала популярные', 'Сначала новые']"
+          :default="'Сначала дорогие'" class="select" @input="alert(displayToKey($event))" />
+      </div>
     </div>
   </section>
 </template>
 <script>
-import MySelect from './UI/MySelect.vue';
+import CustomSelect from './UI/CustomSelect.vue';
 export default {
-    name: "product-heder",
-    components: { MySelect }
+  name: "product-heder",
+  components: { CustomSelect }
 };
 </script>
 <style>
+.product-header-wraper{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
 .product-header-container {
   display: flex;
   margin-bottom: 2.7rem;
@@ -39,24 +49,29 @@ export default {
   margin-left: 1rem;
   display: none;
 }
+
 .product-header-filter {
   display: none;
 }
+
 @media (max-width: 1030px) {
   .product-header-container {
     margin-left: 1rem;
     margin-right: 1rem;
   }
 }
+
 @media (max-width: 700px) {
   .product-header-counter {
     display: none;
   }
+
   .product-header-filter {
     display: block;
   }
-  .product-header-title{
-    display: block  ;
+
+  .product-header-title {
+    display: block;
   }
 }
 </style>

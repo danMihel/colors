@@ -84,10 +84,15 @@ export default createStore({
         image: require("@/assets/products/5.png")
       },
     ],
+    showCart: false,
   },
   getters: {
   },
   mutations: {
+    setShowCart(state) {
+      console.log(state.showCart)
+      state.showCart? state.showCart = false:state.showCart = true;
+    },
   },
   actions: {
   },

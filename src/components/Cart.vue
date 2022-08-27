@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div class="cart-wraper" v-if="show" @click.stop="hideForm">
+    <div class="cart-wraper" v-if="$store.state.showCart">
       <div class="cart-container" @click.stop>
         <div class="cart-header">
           <div class="cart-title">Корзина</div>
-          <div class="cart-header__x">
+          <div class="cart-header__x" @click="$store.commit('setShowCart')" >
             <img src="@/assets/img/x.svg" />
           </div>
         </div>
@@ -37,13 +37,13 @@ export default {
   props: {
     show: {
       type: Boolean,
-      default: false ,
+      default: true,
     },
   },
   methods: {
     hideForm() {
       alert("hide");
-      this.$emit("update:show", false);
+     
     },
   },
   components: { CartProduct },

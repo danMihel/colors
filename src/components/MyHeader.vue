@@ -21,8 +21,8 @@
         <img src="@/assets/img/search.svg" />
         <img src="@/assets/img/profile.svg" />
         <img src="@/assets/img/heart.svg" />
-        <div class="header-icons__cart">4</div>
-      </div>
+        <div class="header-icons__cart" @click="$store.commit('setShowCart')">4</div>
+      </div>   
     </div>
   </section>
 </template>
