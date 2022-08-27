@@ -21,7 +21,7 @@
         <img src="@/assets/img/search.svg" />
         <img src="@/assets/img/profile.svg" />
         <img src="@/assets/img/heart.svg" />
-        <div class="header-icons__cart" @click="$store.commit('setShowCart')">4</div>
+        <div class="header-icons__cart" @click="$store.commit('setShowCart')">  <span class="mini-cart__card-count">{{ $store.state.cart.length }}</span></div>
       </div>   
     </div>
   </section>

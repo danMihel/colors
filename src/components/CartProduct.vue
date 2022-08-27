@@ -6,12 +6,12 @@
       <div class="cart-product__prise">{{ cartProduct.price }} ₽</div>
     </div>
     <div class="cart-product-btn-group">
-      <div class="cart-product__btn">-</div>
-      <div class="cart-product__counter">2</div>
-      <div class="cart-product__btn">+</div>
+      <div class="cart-product__btn"  @click.prevent="this.$store.commit('multiPriceDecrise', cartProduct)">-</div>
+      <div class="cart-product__counter">{{ cartProduct.amount }}</div>
+      <div class="cart-product__btn"  @click.prevent="this.$store.commit('multiPriceIncrise', cartProduct)">+</div>
     </div>
     <div>
-        <img class="cart-product__x" src="@/assets/img/x.svg"/>
+        <img class="cart-product__x" @click.prevent="this.$store.commit('removeFromCart', cartProduct)" src="@/assets/img/x.svg"/>
     </div>
   </div>
 </template>
@@ -62,6 +62,7 @@ export default {
   border-radius: 4px;
   width: 3rem;
   height: 1.5rem;
+  cursor: pointer;
 }
 .cart-product-btn-group {
   display: flex;
@@ -77,6 +78,7 @@ export default {
 .cart-product__x{
     opacity: 0.2;
     margin-left: 2rem;
+    cursor: pointer;
 }
 @media (max-width: 460px) {
   .cart-product-btn-group {
