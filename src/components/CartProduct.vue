@@ -6,7 +6,7 @@
       <div class="cart-product__prise">{{ cartProduct.price }} ₽</div>
     </div>
     <div class="cart-product-btn-group">
-      <div class="cart-product__btn"  @click.prevent="this.$store.commit('multiPriceDecrise', cartProduct)">-</div>
+      <div class="cart-product__btn"  @click.prevent="this.$store.commit('multiPriceDecrise', cartProduct,)">-</div>
       <div class="cart-product__counter">{{ cartProduct.amount }}</div>
       <div class="cart-product__btn"  @click.prevent="this.$store.commit('multiPriceIncrise', cartProduct)">+</div>
     </div>

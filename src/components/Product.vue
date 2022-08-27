@@ -70,7 +70,7 @@ export default {
   transition: all 0.5s ease;
 }
 .order-btn:active{
-  background: #438564;
+  background: #438564;  
 }
 @media (max-width: 1030px) {
   .product-img {
