@@ -1,39 +1,45 @@
 <template>
   <section>
-    <div class="cart-wraper" v-if="$store.state.showCart">
-      <div class="cart-container" @click.stop>
-        <div>
-          <div class="cart-header">
-            <div class="cart-title">Корзина</div>
-            <div class="cart-header__x" @click="$store.commit('setShowCart')">
-              <img src="@/assets/img/x.svg" />
+   <transition name="fade-cart">
+    <div class="cart-filler" v-if="$store.state.showCart">
+    </div>
+    </transition>
+    <transition name="slide-cart">
+      <div class="cart-wraper" v-if="$store.state.showCart" @click.self="$store.commit('setShowCart')">
+        <div class="cart-container">
+          <div>
+            <div class="cart-header">
+              <div class="cart-title">Корзина</div>
+              <div class="cart-header__x" @click.stop="$store.commit('setShowCart')">
+                <img src="@/assets/img/x.svg" />
+              </div>
+            </div>
+            <div class="cart-product-wraper">
+              <div class="cart-row">
+                <div class="cart-product__counter">{{ $store.state.cart.length }} товара</div>
+                <div class="cart-product__clear" @click="$store.commit('clearCart')">очистить список</div>
+              </div>
+              <div class="cart-row" v-for="item in $store.state.cart" :key="Date.now()">
+                <CartProduct :cartProduct="item" :key="Date.now()" />
+              </div>
             </div>
           </div>
-          <div class="cart-product-wraper">
-            <div class="cart-row">
-              <div class="cart-product__counter">{{ $store.state.cart.length }} товара</div>
-              <div class="cart-product__clear" @click="$store.commit('clearCart')">очистить список</div>
+          <div class="cart-footer-wraper">
+            <div class="cart-footer">
+              <div class="cart-footer__title">
+                Итого
+              </div>
+              <div class="cart-footer__price">
+                {{ $store.state.cartTotalPrice.toLocaleString('ru-RU') }}₽
+              </div>
             </div>
-            <div class="cart-row" v-for="item in $store.state.cart" :key="item.id">
-              <CartProduct :cartProduct="item" :key="item.title" />
+            <div class="cart-footer__btn">
+              Оформить заказ
             </div>
-          </div>
-        </div>
-        <div class="cart-footer-wraper">
-          <div class="cart-footer">
-            <div class="cart-footer__title">
-              Итого
-            </div>
-            <div class="cart-footer__price">
-              {{ $store.state.cartTotalPrice.toLocaleString('ru-RU') }}₽
-            </div>
-          </div>
-          <div class="cart-footer__btn">
-            Оформить заказ
           </div>
         </div>
       </div>
-    </div>
+    </transition>
   </section>
 </template>
 <script>
@@ -51,6 +57,7 @@ export default {
       default: true,
     },
   },
+
   mounted() {
     this.$store.commit('cartTotalPrice');
     this.$store.commit("setCartCount");
@@ -59,6 +66,41 @@ export default {
 };
 </script>
 <style>
+.slide-cart-enter-active {
+  transition: all 0.2s ease;
+}
+
+.slide-cart-leave-active {
+  transition: all 0.2s ease;
+}
+
+.slide-cart-enter-from,
+.slide-cart-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.fade-cart-enter-active,
+.fade-cart-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-cart-enter-from,
+.fade-cart-leave-to {
+  opacity: 0;
+}
+
+.cart-filler {
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .cart-wraper {
   top: 0;
   bottom: 0;
@@ -66,7 +108,6 @@ export default {
   left: 0;
   z-index: 1;
   position: absolute;
-  background: rgba(0, 0, 0, 0.7);
   overflow-y: scroll;
 }
 

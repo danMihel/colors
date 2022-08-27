@@ -19,6 +19,12 @@ export default {
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+ 
+}
+
 #app {
   font-family: "Inter";
   -webkit-font-smoothing: antialiased;

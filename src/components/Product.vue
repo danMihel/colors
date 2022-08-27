@@ -5,7 +5,7 @@
       <div class="product-title">{{ product.title }}</div>
       <div class="product-price-container">
         <div class="product-price">{{ product.price }} ₽</div>
-        <div class="order-btn"><img src="@/assets/img/plus.svg" /></div>
+        <div class="order-btn" @click="$store.commit('addToCart', product)"><img src="@/assets/img/plus.svg" /></div>
       </div>
     </div>
   </div>
@@ -69,6 +69,9 @@ export default {
   opacity: 0;
   transition: all 0.5s ease;
 }
+.order-btn:active{
+  background: #438564;
+}
 @media (max-width: 1030px) {
   .product-img {
     min-height: 7rem;
@@ -95,6 +98,10 @@ export default {
     opacity: 1;
     transition: all 0.5s ease;
   }
+  .order-btn:active{
+     background: #7bb899;
+  }
+  
    .order-btn img{
     width: 1rem;
     height: 1rem;

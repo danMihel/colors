@@ -3,27 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     cart: [
-      {
-        id: 2,
-        amount: 1,
-        title: "Краска Wallquest, Brownsone MS90102",
-        price: 4800,
-        image: require("@/assets/products/2.png"),
-      },
-      {
-        id: 3,
-        amount: 1,
-        title: "Краска Wallquest, Brownsone MS90102",
-        price: 5290,
-        image: require("@/assets/products/3.png")
-      },
-      {
-        id: 4,
-        amount: 1,
-        title: "Краска Wallquest, Brownsone MS90102",
-        price: 2800,
-        image: require("@/assets/products/4.png")
-      },
+
     ],
     products: [
       {
@@ -100,13 +80,20 @@ export default createStore({
     showCart: false,
     cartTotalPrice: 0,
     cartCount: 0,
+    showSwitcher: false,
   },
   getters: {
   },
   mutations: {
+    setshowSwitcher(state) {
+      state.showSwitcher ? state.showSwitcher = false : state.showSwitcher = true;
+      state.showSwitcher ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto'
+    },
+
     setShowCart(state) {
-      console.log(state.showCart)
       state.showCart ? state.showCart = false : state.showCart = true;
+      state.showCart ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto'
+
     },
     clearCart(state) {
       state.cart = []
@@ -140,7 +127,7 @@ export default createStore({
         found.totalPrice = found.amount * found.price;
         this.commit("cartTotalPrice")
         this.commit("setCartCount")
-      } 
+      }
     },
     removeFromCart(state, item) {
       let index = state.cart.indexOf(item);
@@ -148,11 +135,22 @@ export default createStore({
         let product = state.cart[index];
         state.cartCount -= product.quantity;
         state.cart.splice(index, 1);
-       }  
-       item.amount = 0
+      }
+      item.amount = 0
       this.commit("setCartCount")
       this.commit("cartTotalPrice")
     },
+    addToCart(state, item) {
+      let index = state.products.indexOf(item);
+      let prod = state.products[index];
+      if(state.cart.includes(prod)){
+        alert('Товар уже в корзине')
+      }else{
+        state.cart.push(prod);
+        this.commit("cartTotalPrice");
+      }
+     
+    }
 
   },
   actions: {
