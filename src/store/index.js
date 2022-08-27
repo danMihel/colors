@@ -116,7 +116,6 @@ export default createStore({
     multiPriceIncrise(state, item) {
       let found = state.cart.find((i) => i.id == item.id);
       found.amount += 1;
-      found.totalPrice = found.amount * found.price;
       this.commit("cartTotalPrice")
       this.commit("setCartCount")
     },
@@ -124,7 +123,6 @@ export default createStore({
       let found = state.cart.find((i) => i.id == item.id);
       if (found.amount > 0) {
         found.amount -= 1;
-        found.totalPrice = found.amount * found.price;
         this.commit("cartTotalPrice")
         this.commit("setCartCount")
       }
@@ -149,9 +147,7 @@ export default createStore({
         state.cart.push(prod);
         this.commit("cartTotalPrice");
       }
-     
     }
-
   },
   actions: {
   },
