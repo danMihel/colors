@@ -141,7 +141,7 @@ export default createStore({
       let index = state.products.indexOf(item);
       let prod = state.products[index];
       if(state.cart.includes(prod)){
-        alert('Товар уже в корзине')
+         
       }else{
         state.cart.push(prod);
         this.commit("cartTotalPrice");

@@ -1,6 +1,6 @@
 <template>
   <div class="custom-select-filler" :class="{  hide:open}"></div>
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false, noScroll">
+  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
     <div class="selected" :class="{ open: open }" @click="open = !open; ">
       {{ selected }}
     </div>
@@ -40,11 +40,7 @@ export default {
       open: false,
     };
   },
-  watch:{
-    open(){
-      this.open ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto';
-    }
-  },
+
   mounted() {
     this.$emit("input", this.selected);
   },
@@ -61,7 +57,7 @@ export default {
 }
 
 .custom-select-filler {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 200%;
