@@ -1,6 +1,4 @@
 <template>
-<div>
-</div>
   <div class="switcher-container">
     <div class="switcher" :class="{ on: isActive }" @click="switcher">
       <img src="@/assets/img/ellipse.svg" />

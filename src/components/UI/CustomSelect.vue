@@ -1,6 +1,7 @@
 <template>
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
-    <div class="selected" :class="{ open: open }" @click="open = !open">
+  <div class="custom-select-filler" :class="{  hide:open}"></div>
+  <div class="custom-select" :tabindex="tabindex" @blur="open = false, noScroll">
+    <div class="selected" :class="{ open: open }" @click="open = !open; ">
       {{ selected }}
     </div>
     <div class="items" :class="{ selectHide: !open }">
@@ -39,6 +40,11 @@ export default {
       open: false,
     };
   },
+  watch:{
+    open(){
+      this.open ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto';
+    }
+  },
   mounted() {
     this.$emit("input", this.selected);
   },
@@ -46,8 +52,22 @@ export default {
 </script>
 
 <style scoped>
+ 
 .open {
   opacity: 0;
+}
+.hide{
+  display:block !important;
+}
+
+.custom-select-filler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
 }
 
 .custom-select {
@@ -67,11 +87,6 @@ export default {
   text-align: center;
 }
 
-.custom-select .selected.open {
-  border: 1px solid #ad8225;
-  border-radius: 6px 6px 0px 0px;
-}
-
 .custom-select .selected:after {
   position: absolute;
   content: "";
@@ -85,7 +100,6 @@ export default {
 
 .custom-select .items {
   color: #fff;
-  border-radius: 0px 0px 6px 6px;
   overflow: hidden;
   position: absolute;
   background-color: #FFFFFF;

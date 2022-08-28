@@ -93,7 +93,6 @@ export default createStore({
     setShowCart(state) {
       state.showCart ? state.showCart = false : state.showCart = true;
       state.showCart ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto'
-
     },
     clearCart(state) {
       state.cart = []
@@ -147,7 +146,7 @@ export default createStore({
         state.cart.push(prod);
         this.commit("cartTotalPrice");
       }
-    }
+    },
   },
   actions: {
   },

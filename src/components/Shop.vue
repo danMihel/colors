@@ -66,7 +66,7 @@ export default {
     margin-right: 1rem;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 743px) {
   .chois-bar-container {
     display: none;
   }

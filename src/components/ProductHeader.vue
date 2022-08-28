@@ -40,17 +40,17 @@ export default {
 <style>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
 .slide-fade-enter-active {
-  transition: all 0.8s ease-out;
+  transition: all 0.5s ease-out;
 }
 .slide-fade-leave-active {
-  transition: all 0.8s ease-out;
+  transition: all 0.5s ease-out;
 }
 .slide-fade-enter-from,
 .slide-fade-leave-to {
@@ -117,7 +117,6 @@ export default {
   z-index: 1;
   top: -2rem;
   height: 100%;
-
   transition-duration: 2s;
 }
 
@@ -128,6 +127,13 @@ export default {
   justify-content: center;
 }
 
+.product-header-filter{
+  display: none;
+}
+.product-header-counter{
+  text-align: left;
+}
+
 @media (max-width: 1030px) {
   .product-header-container {
     margin-left: 1rem;
@@ -135,7 +141,7 @@ export default {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 743px) {
   .product-header-counter {
     display: none;
   }
