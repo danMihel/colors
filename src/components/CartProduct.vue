@@ -2,11 +2,13 @@
   <div>
     <div class="cart-product-container">
       <div>
-        <div class="cart-product" :class="{ deleted:  deleted }">
+        <div class="cart-product" :class="{ deleted: deleted }">
           <img class="cart-product__img" :src="cartProduct.image" />
           <div class="cart-product-title-group">
             <div class="cart-product__title">{{ cartProduct.title }}</div>
-            <div class="cart-product__prise">{{ cartProduct.price * cartProduct.amount }} ₽</div>
+            <div class="cart-product__prise">
+              {{ cartProduct.price * cartProduct.amount }} ₽
+            </div>
           </div>
           <div class="cart-product-btn-group">
             <div
@@ -17,8 +19,12 @@
             >
               -
             </div>
-            <div v-if="cartProduct.cash > 0"> {{cartProduct.cash}}</div>
-            <div v-else class="cart-product__counter">{{ cartProduct.amount }}</div>
+            <div v-if="cartProduct.cash > 0" class="cart-product__counter">
+              {{ cartProduct.cash }}
+            </div>
+            <div v-else class="cart-product__counter">
+              {{ cartProduct.amount }}
+            </div>
             <div
               class="cart-product__btn"
               @click.prevent="
@@ -30,17 +36,23 @@
           </div>
         </div>
       </div>
-      <div >
+      <div>
         <img
           v-if="deleted"
-          @click.prevent="this.deleted = false;  this.$store.commit('rebotCartProduct', cartProduct);"
+          @click.prevent="
+            this.deleted = false;
+            this.$store.commit('rebotCartProduct', cartProduct);
+          "
           id="cart-product__repeat"
           src="@/assets/img/repeat.svg"
         />
         <img
           v-else
           class="cart-product__x"
-          @click.prevent=" this.$store.commit('removeFromCart', cartProduct); this.deleted = true;"
+          @click.prevent="
+            this.$store.commit('removeFromCart', cartProduct);
+            this.deleted = true;
+          "
           src="@/assets/img/x.svg"
         />
       </div>
@@ -57,7 +69,6 @@ export default {
   },
   computed: {
     deleteProd() {
-      console.log("asf");
       return (this.deleted = true);
     },
   },
@@ -67,18 +78,22 @@ export default {
       require: true,
     },
   },
+  mounted() {
+    if (this.cartProduct.cash > 0) {
+      this.deleted = true;
+    }
+  },
 };
 </script>
 <style scoped>
-
-  .deleted{
-    opacity: 0.2;
-  }
-  .cart-product-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+.deleted {
+  opacity: 0.2;
+}
+.cart-product-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .cart-product {
   display: flex;
   align-items: center;
@@ -90,7 +105,6 @@ export default {
   width: 6rem;
   height: 6rem;
   margin-bottom: 0.7rem;
-  
 }
 .cart-product-title-group {
   margin-left: 0.5rem;
