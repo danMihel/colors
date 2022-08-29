@@ -2,20 +2,16 @@
   <div class="custom-select-filler" :class="{  hide:open}"></div>
   <div class="custom-select" :tabindex="tabindex" @blur="open = false">
     <div class="selected" :class="{ open: open }" @click="open = !open; ">
-      {{ selected }}
+      {{ selected.name }}
     </div>
-    <div class="items" :class="{ selectHide: !open }">
-      <div v-for="(option, i) of options" :key="i" @click="
-  selected = option;
-open = false;
-$emit('input', option);
-      ">
-        {{ option }}
+    <div class="items" :class="{ selectHide: !open }" >
+      <div  v-for="(option, i) of options" :key="option.name" 
+      @click=" selected = option; open = false; $emit('input', option);">
+       <div @click="changeOptions"> {{ option.name }}</div> 
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
@@ -40,7 +36,12 @@ export default {
       open: false,
     };
   },
-
+  methods: {
+    changeOptions(event) {
+        console.log( 'CS', event.target)
+        this.$store.commit('setSelectedSort', event.target.innerHTML);
+      },
+    },
   mounted() {
     this.$emit("input", this.selected);
   },

@@ -1,15 +1,19 @@
 <template>
   <section>
-   <transition name="fade">
-    <div class="choiceBar-filler" v-if="$store.state.showSwitcher">
-    </div>
+    <transition name="fade">
+      <div class="choiceBar-filler" v-if="$store.state.showSwitcher"></div>
     </transition>
     <transition name="slide-fade">
       <div class="choiceBar-wraper" v-if="$store.state.showSwitcher">
-          <div class="choiceBar-padding" @click.stop="$store.commit('setshowSwitcher')">
-    </div>
+        <div
+          class="choiceBar-padding"
+          @click.stop="$store.commit('setshowSwitcher')"
+        ></div>
         <div class="choiceBar">
-          <div class="choiceBar-forelock" @click.stop="$store.commit('setshowSwitcher')">
+          <div
+            class="choiceBar-forelock"
+            @click.stop="$store.commit('setshowSwitcher')"
+          >
             <img src="@/assets/img/forelock.svg" />
           </div>
           <ChoiceBar />
@@ -20,21 +24,24 @@
     <div class="product-header-wraper">
       <div class="product-header-container">
         <div class="product-header-counter">412 товаров</div>
-        <div class="product-header-filter" @click.stop="$store.commit('setshowSwitcher')">Фильтры</div>
+        <div
+          class="product-header-filter"
+          @click.stop="$store.commit('setshowSwitcher')"
+        >
+          Фильтры
+        </div>
       </div>
-      <div>
-        <CustomSelect :options="['Сначала дорогие', 'Сначала недорогие', 'Сначала популярные', 'Сначала новые']"
-          :default="'Сначала дорогие'" class="select" />
-      </div>
+      <CustomSelect :options="$store.state.sortOptons"/>
     </div>
   </section>
 </template>
 <script>
-import CustomSelect from './UI/CustomSelect.vue';
-import ChoiceBar from './ChoiceBar.vue';
+import ChoiceBar from "./ChoiceBar.vue";
+import MySelect from "./UI/MySelect.vue";
+import CustomSelect from "./UI/CustomSelect.vue";
 export default {
   name: "product-heder",
-  components: { CustomSelect, ChoiceBar }
+  components: { CustomSelect, ChoiceBar, MySelect, CustomSelect },
 };
 </script>
 <style>
@@ -105,10 +112,12 @@ export default {
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
 }
-.choiceBar-padding{
+
+.choiceBar-padding {
   position: static;
   height: 20vh;
 }
+
 .choiceBar {
   border-radius: 24px 24px 0px 0px;
   position: relative;
@@ -127,10 +136,10 @@ export default {
   justify-content: center;
 }
 
-.product-header-filter{
+.product-header-filter {
   display: none;
 }
-.product-header-counter{
+.product-header-counter {
   text-align: left;
 }
 

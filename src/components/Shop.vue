@@ -10,7 +10,7 @@
     <div class="products-container">
       <ProductHeader />
       <div class="products-list">
-        <div v-for="item in $store.state.products" :key="item.id">
+        <div v-for="item in $store.getters.sortedProducts" :key="item.id">
           <Product :product="item" :key="item.title" />
         </div>
       </div>

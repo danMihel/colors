@@ -81,14 +81,37 @@ export default createStore({
     cartTotalPrice: 0,
     cartCount: 0,
     showSwitcher: false,
+    selectedSort: '',
+    sortOptons: [
+      { name: "Сначала дорогие" },
+      { name: "Сначала недорогие" },
+    ],
   },
   getters: {
+    sortedProducts(state){
+      console.log(state.selectedSort, ' sortedProducts')
+      if(state.selectedSort === "Сначала недорогие")
+      return[...state.products].sort((prod1, prod2) => {
+        return prod1.price - prod2.price
+      });
+      if(state.selectedSort === "Сначала дорогие")
+      return[...state.products].sort((prod1, prod2) => {
+        return prod1.price - prod2.price
+      }).reverse();
+      else return state.products
+    }
   },
   mutations: {
+    setSelectedSort(state, newValue){
+      console.log('setSelectedSort',  newValue)
+      state.selectedSort = newValue
+    },
+
     setshowSwitcher(state) {
       state.showSwitcher ? state.showSwitcher = false : state.showSwitcher = true;
       state.showSwitcher ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto'
     },
+
 
     setShowCart(state) {
       state.showCart ? state.showCart = false : state.showCart = true;
