@@ -136,6 +136,7 @@ export default createStore({
     },
     clearCart(state) {
       state.cart = [];
+      console.log(state.cart);
       this.commit("cartTotalPrice");
       this.commit("setCartCount");
     },
@@ -155,16 +156,22 @@ export default createStore({
     },
     multiPriceIncrise(state, item) {
       let found = state.cart.find((i) => i.id == item.id);
-      found.amount += 1;
-      this.commit("cartTotalPrice");
-      this.commit("setCartCount");
+      if (found.cash > 0) {
+      } else {
+        found.amount += 1;
+        this.commit("cartTotalPrice");
+        this.commit("setCartCount");
+      }
     },
     multiPriceDecrise(state, item) {
       let found = state.cart.find((i) => i.id == item.id);
-      if (found.amount > 0) {
-        found.amount -= 1;
-        this.commit("cartTotalPrice");
-        this.commit("setCartCount");
+      if (found.cash > 0) {
+      } else {
+        if (found.amount > 0) {
+          found.amount -= 1;
+          this.commit("cartTotalPrice");
+          this.commit("setCartCount");
+        }
       }
     },
     removeFromCart(state, item) {

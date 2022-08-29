@@ -24,7 +24,7 @@
             </div>
             <div v-else class="cart-product__counter">
               {{ cartProduct.amount }}
-            </div>
+            </div>            
             <div
               class="cart-product__btn"
               @click.prevent="
