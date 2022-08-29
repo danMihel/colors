@@ -6,7 +6,7 @@
           <img class="cart-product__img" :src="cartProduct.image" />
           <div class="cart-product-title-group">
             <div class="cart-product__title">{{ cartProduct.title }}</div>
-            <div class="cart-product__prise">{{ cartProduct.price }} ₽</div>
+            <div class="cart-product__prise">{{ cartProduct.price * cartProduct.amount }} ₽</div>
           </div>
           <div class="cart-product-btn-group">
             <div
@@ -17,7 +17,8 @@
             >
               -
             </div>
-            <div class="cart-product__counter">{{ cartProduct.amount }}</div>
+            <div v-if="cartProduct.cash > 0"> {{cartProduct.cash}}</div>
+            <div v-else class="cart-product__counter">{{ cartProduct.amount }}</div>
             <div
               class="cart-product__btn"
               @click.prevent="
@@ -32,14 +33,14 @@
       <div >
         <img
           v-if="deleted"
-          @click.prevent="this.deleted = false"
+          @click.prevent="this.deleted = false;  this.$store.commit('rebotCartProduct', cartProduct);"
           id="cart-product__repeat"
           src="@/assets/img/repeat.svg"
         />
         <img
           v-else
           class="cart-product__x"
-          @click.prevent=" this.$store.commit('removeFromCart', cartProduct); this.deleted = true"
+          @click.prevent=" this.$store.commit('removeFromCart', cartProduct); this.deleted = true;"
           src="@/assets/img/x.svg"
         />
       </div>
