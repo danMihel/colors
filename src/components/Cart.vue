@@ -19,9 +19,11 @@
                 <div class="cart-product__counter">{{ $store.state.cartCount }} товара</div>
                 <div class="cart-product__clear" @click="$store.commit('clearCart')">очистить список</div>
               </div>
+              <transition-group name="list">
               <div class="cart-row" v-for="item in $store.state.cart" :key="item.id">
                 <CartProduct :cartProduct="item" :key="item.id" />
               </div>
+            </transition-group>
             </div>
           </div>
           <div class="cart-footer-wraper">
@@ -66,6 +68,17 @@ export default {
 };
 </script>
 <style>
+  .list-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .list-enter-active, .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to  {
+    opacity: 0;
+    transform: translateX(100px);
+  }
 .slide-cart-enter-active {
   transition: all 0.2s ease;
 }

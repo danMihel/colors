@@ -10,9 +10,11 @@
     <div class="products-container">
       <ProductHeader />
       <div class="products-list">
-        <div v-for="item in $store.getters.sortedProducts" :key="item.id">
-          <Product :product="item" :key="item.title" />
-        </div>
+        <transition-group name="flip-list">
+          <div v-for="item in $store.getters.sortedProducts" :key="item.id">
+            <Product :product="item" :key="item.title" />
+          </div>
+        </transition-group>
       </div>
     </div>
   </div>
@@ -39,24 +41,31 @@ export default {
 };
 </script>
 <style>
+.flip-list-move {
+  transition: transform 0.5s;
+}
+
 .products-container {
   width: 100%;
 }
+
 .product-wraper {
   margin-top: 4.7rem;
   margin-left: 2rem;
   margin-right: 2rem;
   display: flex;
 }
+
 .chois-bar-container {
   margin-right: 8.5rem;
   height: 100%;
   min-width: 170px;
 }
+
 .products-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content: space-between;
   row-gap: 10px;
 }
 
@@ -66,6 +75,7 @@ export default {
     margin-right: 1rem;
   }
 }
+
 @media (max-width: 743px) {
   .chois-bar-container {
     display: none;
