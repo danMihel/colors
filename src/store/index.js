@@ -136,7 +136,10 @@ export default createStore({
     },
     clearCart(state) {
       state.cart = [];
-      console.log(state.cart);
+      for (let i of state.products) {
+       i.amount = 1;
+       i.cash = 0;
+      }
       this.commit("cartTotalPrice");
       this.commit("setCartCount");
     },

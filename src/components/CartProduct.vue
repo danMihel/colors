@@ -1,7 +1,6 @@
 <template>
-  <div>
     <div class="cart-product-container">
-      <div>
+      
         <div class="cart-product" :class="{ deleted: deleted }">
           <img class="cart-product__img" :src="cartProduct.image" />
           <div class="cart-product-title-group">
@@ -35,7 +34,7 @@
             </div>
           </div>
         </div>
-      </div>
+      
       <div>
         <img
           v-if="deleted"
@@ -57,7 +56,6 @@
         />
       </div>
     </div>
-  </div>
 </template>
 <script>
 export default {
@@ -93,6 +91,8 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
+  
 }
 .cart-product {
   display: flex;
@@ -100,6 +100,7 @@ export default {
   justify-content: space-between;
   height: 120px;
   width: 100%;
+ 
 }
 .cart-product__img {
   width: 6rem;

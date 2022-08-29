@@ -137,6 +137,7 @@ export default {
 
 .product-header-filter {
   display: none;
+  cursor: pointer;
 }
 .product-header-counter {
   text-align: left;

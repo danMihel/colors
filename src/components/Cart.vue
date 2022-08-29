@@ -147,6 +147,7 @@ export default {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+ min-width: 100%;
 }
 
 .cart-row:last-child {
