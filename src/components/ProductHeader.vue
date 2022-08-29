@@ -37,11 +37,10 @@
 </template>
 <script>
 import ChoiceBar from "./ChoiceBar.vue";
-import MySelect from "./UI/MySelect.vue";
 import CustomSelect from "./UI/CustomSelect.vue";
 export default {
   name: "product-heder",
-  components: { CustomSelect, ChoiceBar, MySelect, CustomSelect },
+  components: { CustomSelect, ChoiceBar, CustomSelect },
 };
 </script>
 <style>

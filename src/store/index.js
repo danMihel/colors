@@ -91,7 +91,6 @@ export default createStore({
   },
   getters: {
     sortedProducts(state){
-      console.log(state.selectedSort, ' sortedProducts')
       if(state.selectedSort === "Сначала недорогие")
       return[...state.products].sort((prod1, prod2) => {
         return prod1.price - prod2.price
@@ -114,14 +113,15 @@ export default createStore({
       state.showSwitcher ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto'
     },
 
-
     setShowCart(state) {
       state.showCart ? state.showCart = false : state.showCart = true;
       state.showCart ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto'
+      this.commit("setCartCount")
     },
     clearCart(state) {
       state.cart = []
       this.commit("cartTotalPrice")
+      this.commit("setCartCount")
     },
     cartTotalPrice(state) {
       state.cartTotalPrice = 0;
@@ -156,7 +156,6 @@ export default createStore({
       if (index > -1) {
         let product = state.cart[index];
         state.cartCount -= product.quantity;
-        state.cart.splice(index, 1);
       }
       item.amount = 0
       this.commit("setCartCount")
@@ -170,6 +169,7 @@ export default createStore({
       }else{
         state.cart.push(prod);
         this.commit("cartTotalPrice");
+        this.commit("setCartCount")
       }
     },
   },

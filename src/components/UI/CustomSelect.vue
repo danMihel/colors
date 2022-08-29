@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     changeOptions(event) {
-        console.log( 'CS', event.target)
         this.$store.commit('setSelectedSort', event.target.innerHTML);
       },
     },

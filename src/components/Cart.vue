@@ -16,7 +16,7 @@
             </div>
             <div class="cart-product-wraper">
               <div class="cart-row">
-                <div class="cart-product__counter">{{ $store.state.cart.length }} товара</div>
+                <div class="cart-product__counter">{{ $store.state.cartCount }} товара</div>
                 <div class="cart-product__clear" @click="$store.commit('clearCart')">очистить список</div>
               </div>
               <div class="cart-row" v-for="item in $store.state.cart" :key="item.id">
