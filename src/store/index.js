@@ -85,6 +85,8 @@ export default createStore({
     sortOptons: [
       { name: "Сначала дорогие" },
       { name: "Сначала недорогие" },
+      { name: "Сначала популярные" },
+      { name: "Сначала новые" },
     ],
   },
   getters: {
