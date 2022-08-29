@@ -87,6 +87,7 @@ export default createStore({
   mutations: {
     setshowSwitcher(state) {
       state.showSwitcher ? state.showSwitcher = false : state.showSwitcher = true;
+      state.showSwitcher ? document.getElementsByTagName('body')[0].style.overflow = 'hidden' : document.getElementsByTagName('body')[0].style.overflow = 'auto'
     },
 
     setShowCart(state) {

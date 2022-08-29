@@ -90,7 +90,7 @@ export default {
 
 .choiceBar-wraper {
   z-index: 1;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -105,9 +105,9 @@ export default {
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
 }
-
 .choiceBar-padding{
-  height: 10rem;
+  position: static;
+  height: 20vh;
 }
 .choiceBar {
   border-radius: 24px 24px 0px 0px;
