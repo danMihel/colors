@@ -63,6 +63,7 @@ export default {
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
   display: none;
 }
 
@@ -73,6 +74,7 @@ export default {
   outline: none;
   height: 47px;
   line-height: 47px;
+  z-index: 3;
 }
 
 .custom-select .selected {

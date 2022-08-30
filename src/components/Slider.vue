@@ -1,7 +1,6 @@
 <template>
   <section>
-    <div class="slider-text-wraper">
-
+    <div class="slider-text-liner">
       <div class="slider-text-wraper__btn-prev">
         <img
           @click="prevSlide"
@@ -9,25 +8,28 @@
           v-if="this.currentSlideIndex > 0"
         />
       </div>
-
-      <div class="slider-text">
-        <div class="slider-text__title">
-          {{ this.$store.state.sliderItems[this.currentSlideIndex].title }}
-        </div>
-        <div class="slider-text__subtitle">
-          {{ this.$store.state.sliderItems[this.currentSlideIndex].subtitle }}
-        </div>
-        <div class="slider-indicator">
-          <div v-for="number in this.$store.state.sliderItems.length">
-            <div class="active" v-if="number === currentSlideIndex + 1"></div>
-            <div class="passive" v-else></div>
+      <div class="slider-text-wraper">
+        <div class="slider-text">
+          <div class="slider-text__title">
+            {{ this.$store.state.sliderItems[this.currentSlideIndex].title }}
+          </div>
+          <div class="slider-text__subtitle">
+            {{ this.$store.state.sliderItems[this.currentSlideIndex].subtitle }}
+          </div>
+          <div class="slider-indicator">
+            <div v-for="number in this.$store.state.sliderItems.length">
+              <div class="active" v-if="number === currentSlideIndex + 1"></div>
+              <div class="passive" v-else></div>
+            </div>
           </div>
         </div>
       </div>
       <div class="slider-text-wraper__btn-next">
         <div
           v-if="
-            this.currentSlideIndex < this.$store.state.sliderItems.length - 1" >
+            this.currentSlideIndex < this.$store.state.sliderItems.length - 1
+          "
+        >
           <img @click="nextSlide" src="@/assets/img/rigthArrow.svg" />
         </div>
       </div>
@@ -100,17 +102,29 @@ export default {
 }
 
 .slider-text-wraper__btn-next {
-  margin-top: 130px;
-  margin-left: auto;
+  position: relative;
+  top: 135px;
+  margin-right: auto;
   cursor: pointer;
+  width: 24px;
 }
 .slider-text-wraper__btn-prev {
-  margin-top: 130px;
+  position: relative;
+  top: 130px;
   transform: rotate(180deg);
-  margin-right: auto;
-  cursor: pointer;  
+  margin-left: auto;
+  cursor: pointer;
+  width: 24px;
 }
-
+.slider-text-liner {
+  position: absolute;
+  display: flex;
+  align-items: baseline;
+  top: calc(2rem + 14vw);
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
 .slider-text {
   align-items: center;
   text-align: center;
@@ -126,19 +140,11 @@ export default {
   transition: all ease-out 0.7s;
 }
 .slider-text-wraper {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-  text-align: base;
-  top: calc(2rem + 14vw);
   left: 0;
-  width: 100%;
   z-index: 1;
-  padding: 0 20%;
+  padding: 0 10%;
+  top: 300px;
 }
-
 .slider-text__title {
   font-family: "Inter";
   font-style: normal;
@@ -172,6 +178,9 @@ export default {
     display: none;
   }
   .slider-text-wraper {
+    display: none;
+  }
+  .liner {
     display: none;
   }
 }
