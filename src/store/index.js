@@ -96,6 +96,13 @@ export default createStore({
       { name: "Сначала популярные" },
       { name: "Сначала новые" },
     ],
+    sliderItems: [
+      {id: 1, name: 'img1', img: 'slide1.png' },
+      {id: 2, name: 'img2', img: 'slide2.png'},
+      {id: 3, name: 'img3', img: 'slide3.png'},
+      {id: 4, name: 'img4', img: 'slide2.png'}
+
+    ],
   },
   getters: {
     sortedProducts(state) {

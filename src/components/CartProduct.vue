@@ -1,6 +1,5 @@
 <template>
     <div class="cart-product-container">
-      
         <div class="cart-product" :class="{ deleted: deleted }">
           <img class="cart-product__img" :src="cartProduct.image" />
           <div class="cart-product-title-group">
@@ -27,14 +26,11 @@
             <div
               class="cart-product__btn"
               @click.prevent="
-                this.$store.commit('multiPriceIncrise', cartProduct)
-              "
-            >
+                this.$store.commit('multiPriceIncrise', cartProduct)">
               +
             </div>
           </div>
         </div>
-      
       <div>
         <img
           v-if="deleted"
@@ -65,7 +61,7 @@ export default {
       deleted: false,
     };
   },
-  computed: {
+  methods: {
     deleteProd() {
       return (this.deleted = true);
     },

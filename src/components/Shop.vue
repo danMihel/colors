@@ -2,7 +2,7 @@
   <Cart :show="true" />
   <MyHeader />
   <Crumbs />
-  <Slider />
+  <Slider :sliderData="$store.state.sliderItems"/>
   <div class="product-wraper">
     <div class="chois-bar-container">
       <ChoiceBar />
