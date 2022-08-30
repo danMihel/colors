@@ -17,6 +17,11 @@
             <img src="@/assets/img/forelock.svg" />
           </div>
           <ChoiceBar />
+          <div
+            class="choiceBar-forelock"
+            @click.stop="$store.commit('setshowSwitcher')"
+          >
+          </div>
         </div>
       </div>
     </transition>
