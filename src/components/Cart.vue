@@ -119,7 +119,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   height: 100%;
   position: fixed;
   overflow-y: scroll;
