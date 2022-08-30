@@ -103,14 +103,14 @@ export default {
 
 .slider-text-wraper__btn-next {
   position: relative;
-  top: 135px;
+  top: 114px;
   margin-right: auto;
   cursor: pointer;
   width: 24px;
 }
 .slider-text-wraper__btn-prev {
   position: relative;
-  top: 130px;
+  top: 110px;
   transform: rotate(180deg);
   margin-left: auto;
   cursor: pointer;
