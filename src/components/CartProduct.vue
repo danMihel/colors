@@ -1,57 +1,55 @@
 <template>
-    <div class="cart-product-container">
-        <div class="cart-product" :class="{ deleted: deleted }">
-          <img class="cart-product__img" :src="cartProduct.image" />
-          <div class="cart-product-title-group">
-            <div class="cart-product__title">{{ cartProduct.title }}</div>
-            <div class="cart-product__prise">
-              {{ cartProduct.price * cartProduct.amount }} ₽
-            </div>
-          </div>
-          <div class="cart-product-btn-group">
-            <div
-              class="cart-product__btn"
-              @click.prevent="
-                this.$store.commit('multiPriceDecrise', cartProduct)
-              "
-            >
-              -
-            </div>
-            <div v-if="cartProduct.cash > 0" class="cart-product__counter">
-              {{ cartProduct.cash }}
-            </div>
-            <div v-else class="cart-product__counter">
-              {{ cartProduct.amount }}
-            </div>            
-            <div
-              class="cart-product__btn"
-              @click.prevent="
-                this.$store.commit('multiPriceIncrise', cartProduct)">
-              +
-            </div>
-          </div>
+  <div class="cart-product-container">
+    <div class="cart-product" :class="{ deleted: deleted }">
+      <img class="cart-product__img" :src="cartProduct.image" />
+      <div class="cart-product-title-group">
+        <div class="cart-product__title">{{ cartProduct.title }}</div>
+        <div class="cart-product__prise">
+          {{ cartProduct.price * cartProduct.amount }} ₽
         </div>
-      <div>
-        <img
-          v-if="deleted"
-          @click.prevent="
-            this.deleted = false;
-            this.$store.commit('rebotCartProduct', cartProduct);
-          "
-          id="cart-product__repeat"
-          src="@/assets/img/repeat.svg"
-        />
-        <img
-          v-else
-          class="cart-product__x"
-          @click.prevent="
-            this.$store.commit('removeFromCart', cartProduct);
-            this.deleted = true;
-          "
-          src="@/assets/img/x.svg"
-        />
+      </div>
+      <div class="cart-product-btn-group">
+        <div
+          class="cart-product__btn"
+          @click.prevent="this.$store.commit('multiPriceDecrise', cartProduct)"
+        >
+          -
+        </div>
+        <div v-if="cartProduct.cash > 0" class="cart-product__counter">
+          {{ cartProduct.cash }}
+        </div>
+        <div v-else class="cart-product__counter">
+          {{ cartProduct.amount }}
+        </div>
+        <div
+          class="cart-product__btn"
+          @click.prevent="this.$store.commit('multiPriceIncrise', cartProduct)"
+        >
+          +
+        </div>
       </div>
     </div>
+    <div>
+      <img
+        v-if="deleted"
+        @click.prevent="
+          this.deleted = false;
+          this.$store.commit('rebotCartProduct', cartProduct);
+        "
+        id="cart-product__repeat"
+        src="@/assets/img/repeat.svg"
+      />
+      <img
+        v-else
+        class="cart-product__x"
+        @click.prevent="
+          this.$store.commit('removeFromCart', cartProduct);
+          this.deleted = true;
+        "
+        src="@/assets/img/x.svg"
+      />
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -88,7 +86,6 @@ export default {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  
 }
 .cart-product {
   display: flex;
@@ -96,7 +93,6 @@ export default {
   justify-content: space-between;
   height: 120px;
   width: 100%;
- 
 }
 .cart-product__img {
   width: 6rem;
@@ -146,7 +142,7 @@ export default {
 }
 #cart-product__repeat {
   opacity: 1 !important;
-  margin-left: 1.5rem;
+  margin-left: 2rem;
   cursor: pointer;
 }
 @media (max-width: 460px) {
@@ -158,7 +154,10 @@ export default {
   }
   .cart-product__x {
     opacity: 0.2;
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
+  }
+  #cart-product__repeat {
+    margin-left: 0.2rem;
   }
   .cart-product-title-group {
     margin-left: 0.1rem;
