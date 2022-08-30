@@ -97,11 +97,9 @@ export default createStore({
       { name: "Сначала новые" },
     ],
     sliderItems: [
-      {id: 1, name: 'img1', img: 'slide1.png' },
-      {id: 2, name: 'img2', img: 'slide2.png'},
-      {id: 3, name: 'img3', img: 'slide3.png'},
-      {id: 4, name: 'img4', img: 'slide2.png'}
-
+      {id: 1, title: 'Краски ', subtitle: 'Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!', img: 'slide1.png' },
+      {id: 2, title: 'Слайд №2', subtitle: 'Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!', img: 'slide2.png'},
+      {id: 3, title: 'Третья картинка', subtitle: 'Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!', img: 'slide3.png'},
     ],
   },
   getters: {

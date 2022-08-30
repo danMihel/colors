@@ -1,5 +1,5 @@
 <template>
-  <img :src="require('../assets/img/' + itemData.img)" />
+    <img :src="require('../assets/img/' + itemData.img)" />
 </template>
 <script>
 export default {
@@ -14,7 +14,8 @@ export default {
 </script>
 <style scoped>
 img {
-  width: 100%; 
+  position: relative;
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
