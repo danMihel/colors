@@ -1,11 +1,15 @@
 <template>
   <section>
     <div class="slider-text-wraper">
-      <img
-        class="slider-text-wraper__btn-prev"
-        @click="prevSlide"
-        src="@/assets/img/rigthArrow.svg"
-      />
+
+      <div class="slider-text-wraper__btn-prev">
+        <img
+          @click="prevSlide"
+          src="@/assets/img/rigthArrow.svg"
+          v-if="this.currentSlideIndex > 0"
+        />
+      </div>
+
       <div class="slider-text">
         <div class="slider-text__title">
           {{ this.$store.state.sliderItems[this.currentSlideIndex].title }}
@@ -20,11 +24,13 @@
           </div>
         </div>
       </div>
-      <img
-        class="slider-text-wraper__btn-next"
-        @click="nextSlide"
-        src="@/assets/img/rigthArrow.svg"
-      />
+      <div class="slider-text-wraper__btn-next">
+        <div
+          v-if="
+            this.currentSlideIndex < this.$store.state.sliderItems.length - 1" >
+          <img @click="nextSlide" src="@/assets/img/rigthArrow.svg" />
+        </div>
+      </div>
     </div>
     <div class="slider-wraper">
       <div
@@ -54,8 +60,6 @@ export default {
     prevSlide() {
       if (this.currentSlideIndex > 0) {
         this.currentSlideIndex--;
-      } else {
-        this.currentSlideIndex = this.$store.state.sliderItems.length - 1;
       }
     },
     nextSlide() {
@@ -104,7 +108,7 @@ export default {
   margin-top: 130px;
   transform: rotate(180deg);
   margin-right: auto;
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 .slider-text {
@@ -124,9 +128,10 @@ export default {
 .slider-text-wraper {
   position: absolute;
   display: flex;
+  align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  text-align: center;
+  text-align: base;
   top: calc(2rem + 14vw);
   left: 0;
   width: 100%;
