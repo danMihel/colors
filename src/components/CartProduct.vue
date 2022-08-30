@@ -146,7 +146,7 @@ export default {
 }
 #cart-product__repeat {
   opacity: 1 !important;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
   cursor: pointer;
 }
 @media (max-width: 460px) {
