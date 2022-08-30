@@ -77,7 +77,7 @@ export default {
 .slider-text-wraper {
   position: absolute;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around;    
   flex-direction: row;
   text-align: center;
   top: calc(2rem + 14vw);
@@ -96,6 +96,7 @@ export default {
   letter-spacing: -0.02em;
   color: #ffffff;
   margin-bottom: 1.5rem; 
+ text-align: center;
 }
 
 .slider-text__subtitle {
