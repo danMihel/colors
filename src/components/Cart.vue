@@ -108,7 +108,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -119,7 +119,7 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 3;
+  z-index: 4;
   height: 100%;
   position: fixed;
   overflow-y: scroll;
