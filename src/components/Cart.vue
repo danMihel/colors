@@ -206,6 +206,7 @@ export default {
 
 .cart-footer__btn {
   padding: 20px 57px;
+  margin: 0 5px;
   background: #7BB899;
   border-radius: 4px;
   font-family: 'Inter';
