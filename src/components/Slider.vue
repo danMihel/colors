@@ -68,7 +68,6 @@ export default {
 }
 .slider-wraper {
   overflow: hidden;
-  background-color: rgb(27, 61, 31);
 }
 .slider-container {
   display: flex;
@@ -110,6 +109,11 @@ export default {
   color: #ffffff;
   width: 30rem;
 }
+@media (max-width: 1030px){
+.slider-text-wraper{
+    top: calc(3rem + 14vw);
+}
+} 
 @media (max-width:900px) {
   .slider-wraper {
     display: none;
