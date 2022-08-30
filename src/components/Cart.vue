@@ -109,7 +109,7 @@ export default {
   right: 0;
   left: 0;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
 }
