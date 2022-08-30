@@ -205,7 +205,7 @@ export default {
 }
 
 .cart-footer__btn {
-  padding: 20px 57px;
+  padding: 1.2rem 3.5rem;
   margin: 0 5px;
   background: #7BB899;
   border-radius: 4px;
