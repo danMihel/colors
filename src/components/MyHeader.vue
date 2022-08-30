@@ -61,6 +61,10 @@ li {
   display: flex;
   margin: 0 auto;
 }
+
+.header-nav li:hover{
+  color:#7BB899;
+}
 .spaser {
   margin: 0 auto;
 }
