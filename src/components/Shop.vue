@@ -65,7 +65,7 @@ export default {
 .products-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   row-gap: 10px;
 }
 
