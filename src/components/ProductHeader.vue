@@ -28,7 +28,7 @@
     <h2 class="product-header-title">Краски</h2>
     <div class="product-header-wraper">
       <div class="product-header-container">
-        <div class="product-header-counter">{{ $store.state.products.length}} товаров</div>
+        <div class="product-header-counter">{{ $store.getters.sortedProducts.length}} товаров</div>
         <div
           class="product-header-filter"
           @click.stop="$store.commit('setshowSwitcher')"

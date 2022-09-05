@@ -11,6 +11,9 @@ export default createStore({
         price: 6000,
         image: require("@/assets/products/1.png"),
         cash: 0,
+        new: false,
+        stock: false,
+        sale: true
       },
       {
         id: 2,
@@ -19,6 +22,8 @@ export default createStore({
         price: 4800,
         image: require("@/assets/products/2.png"),
         cash: 0,
+        new: false,
+        stock: false
       },
       {
         id: 3,
@@ -27,6 +32,8 @@ export default createStore({
         price: 5290,
         image: require("@/assets/products/3.png"),
         cash: 0,
+        new: false,
+        stock: false
       },
       {
         id: 4,
@@ -35,6 +42,8 @@ export default createStore({
         price: 2800,
         image: require("@/assets/products/4.png"),
         cash: 0,
+        new: false,
+        stock: false
       },
       {
         id: 5,
@@ -43,6 +52,8 @@ export default createStore({
         price: 2800,
         image: require("@/assets/products/5.png"),
         cash: 0,
+        new: false,
+        stock: false
       },
       {
         id: 6,
@@ -51,6 +62,8 @@ export default createStore({
         price: 6000,
         image: require("@/assets/products/4.png"),
         cash: 0,
+        new: false,
+        stock: false
       },
       {
         id: 7,
@@ -59,6 +72,8 @@ export default createStore({
         price: 4800,
         image: require("@/assets/products/2.png"),
         cash: 0,
+        new: true,
+        stock: false
       },
       {
         id: 8,
@@ -67,6 +82,8 @@ export default createStore({
         price: 5290,
         image: require("@/assets/products/3.png"),
         cash: 0,
+        new: true,
+        stock: true
       },
       {
         id: 9,
@@ -75,6 +92,8 @@ export default createStore({
         price: 2800,
         image: require("@/assets/products/4.png"),
         cash: 0,
+        new: true,
+        stock: true
       },
       {
         id: 10,
@@ -83,6 +102,9 @@ export default createStore({
         price: 2800,
         image: require("@/assets/products/5.png"),
         cash: 0,
+        new: true,
+        stock: true,
+        sale: true
       },
     ],
     showCart: false,
@@ -90,6 +112,11 @@ export default createStore({
     cartCount: 0,
     showSwitcher: false,
     selectedSort: "",
+    switcherOptons: [
+      {name: 'Новинки', statys: false},
+      {name: 'ЕСТЬ В НАЛИЧИИ', statys: false},
+      {name: 'РАСПРОДАЖА', statys: false},
+    ],
     sortOptons: [
       { name: "Сначала дорогие" },
       { name: "Сначала недорогие" },
@@ -104,23 +131,32 @@ export default createStore({
     ],
   },
   getters: {
-    sortedProducts(state) {
+    sortedProducts(state, getters) {
       if (state.selectedSort === "Сначала недорогие")
-        return [...state.products].sort((prod1, prod2) => {
+        return getters.filterProducts.sort((prod1, prod2) => {
           return prod1.price - prod2.price;
         });
       if (state.selectedSort === "Сначала дорогие")
-        return [...state.products]
+        return getters.filterProducts
           .sort((prod1, prod2) => {
             return prod1.price - prod2.price;
           })
           .reverse();
-      else return state.products;
+      else return getters.filterProducts;
     },
+    filterProducts(state) {
+      if(state.switcherOptons[0].statys === true){
+        return state.products.filter((prod) => prod.new === true);
+      } else if (state.switcherOptons[1].statys === true){
+        return state.products.filter((prod) => prod.stock === true);
+      } else if (state.switcherOptons[2].statys === true){
+        return state.products.filter((prod) => prod.sale === true);
+      }
+       else return state.products
+    }
   },
   mutations: {
     setSelectedSort(state, newValue) {
-      console.log("setSelectedSort", newValue);
       state.selectedSort = newValue;
     },
 
@@ -204,7 +240,7 @@ export default createStore({
         this.commit("setCartCount");
       }
     },
-    rebotCartProduct(state, item) {
+    rebotCartProduct(item) {
       item.amount = item.cash;
       item.cash = 0;
       this.commit("cartTotalPrice");

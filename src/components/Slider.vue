@@ -176,12 +176,17 @@ export default {
 @media (max-width: 900px) {
   .slider-wraper {
     display: none;
+    z-index: 0;
   }
   .slider-text-wraper {
     display: none;
   }
   .liner {
     display: none;
+  }
+  .slider-text-wraper__btn-next{
+    display: none;
+    
   }
 }
 </style>

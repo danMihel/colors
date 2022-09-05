@@ -1,28 +1,23 @@
 <template>
   <div class="switcher-container">
-    <div class="switcher" :class="{ on: isActive }" @click="switcher">
+    <div class="switcher" :class="{ on: filter.statys }" @click=" filter.statys ? filter.statys = false : filter.statys = true;">
       <img src="@/assets/img/ellipse.svg" />
     </div>
-    <div class="switcher-text">{{ text }}</div>
+    <div class="switcher-text">{{ filter.name }}</div>
   </div>
 </template>
 <script>
 export default {
   name: "Switcher",
   props: {
-    text: {
-      type: String,
+    filter: {
+      type: Object,
       require: true,
     },
   },
-  data() {
-    return {
-      isActive: false,
-    };
-  },
   methods: {
     switcher() {
-      this.isActive ? (this.isActive = false) : (this.isActive = true);
+      this.filter.statys ? this.filter.statys = false : this.filter.statys = true;
     },
   },
 };
