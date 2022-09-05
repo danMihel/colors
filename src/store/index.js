@@ -33,7 +33,7 @@ export default createStore({
         image: require("@/assets/products/3.png"),
         cash: 0,
         new: false,
-        stock: false
+        stock: true,
       },
       {
         id: 4,
@@ -53,7 +53,7 @@ export default createStore({
         image: require("@/assets/products/5.png"),
         cash: 0,
         new: false,
-        stock: false
+        stock: true,
       },
       {
         id: 6,
@@ -63,7 +63,7 @@ export default createStore({
         image: require("@/assets/products/4.png"),
         cash: 0,
         new: false,
-        stock: false
+        stock: true,
       },
       {
         id: 7,
@@ -73,7 +73,6 @@ export default createStore({
         image: require("@/assets/products/2.png"),
         cash: 0,
         new: true,
-        stock: false
       },
       {
         id: 8,
