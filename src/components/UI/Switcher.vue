@@ -15,11 +15,6 @@ export default {
       require: true,
     },
   },
-  methods: {
-    switcher() {
-      this.filter.statys ? this.filter.statys = false : this.filter.statys = true;
-    },
-  },
 };
 </script>
 <style scoped>

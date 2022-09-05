@@ -1,5 +1,5 @@
 <template>
-    <section v-for="item in $store.state.switcherOptons" :key="item.name">
+    <section v-for="item in $store.state.switcherOptons" :key="item.name" >
         <Switcher :filter="item" :key="item.name" />
     </section>
 </template>

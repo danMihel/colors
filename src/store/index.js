@@ -13,7 +13,7 @@ export default createStore({
         cash: 0,
         new: false,
         stock: false,
-        sale: true
+        sale: true,
       },
       {
         id: 2,
@@ -23,7 +23,7 @@ export default createStore({
         image: require("@/assets/products/2.png"),
         cash: 0,
         new: false,
-        stock: false
+        stock: false,
       },
       {
         id: 3,
@@ -34,6 +34,7 @@ export default createStore({
         cash: 0,
         new: false,
         stock: true,
+        sale: true,
       },
       {
         id: 4,
@@ -43,7 +44,8 @@ export default createStore({
         image: require("@/assets/products/4.png"),
         cash: 0,
         new: false,
-        stock: false
+        stock: false,
+        sale: true,
       },
       {
         id: 5,
@@ -72,7 +74,7 @@ export default createStore({
         price: 4800,
         image: require("@/assets/products/2.png"),
         cash: 0,
-        new: true,
+        sale: true,
       },
       {
         id: 8,
@@ -82,7 +84,7 @@ export default createStore({
         image: require("@/assets/products/3.png"),
         cash: 0,
         new: true,
-        stock: true
+        stock: true,
       },
       {
         id: 9,
@@ -92,7 +94,8 @@ export default createStore({
         image: require("@/assets/products/4.png"),
         cash: 0,
         new: true,
-        stock: true
+        stock: true,
+        sale: true,
       },
       {
         id: 10,
@@ -103,7 +106,7 @@ export default createStore({
         cash: 0,
         new: true,
         stock: true,
-        sale: true
+        sale: true,
       },
     ],
     showCart: false,
@@ -112,9 +115,9 @@ export default createStore({
     showSwitcher: false,
     selectedSort: "",
     switcherOptons: [
-      {name: 'Новинки', statys: false},
-      {name: 'ЕСТЬ В НАЛИЧИИ', statys: false},
-      {name: 'РАСПРОДАЖА', statys: false},
+      { name: "Новинки", statys: false },
+      { name: "ЕСТЬ В НАЛИЧИИ", statys: false },
+      { name: "РАСПРОДАЖА", statys: false },
     ],
     sortOptons: [
       { name: "Сначала дорогие" },
@@ -123,10 +126,34 @@ export default createStore({
       { name: "Сначала новые" },
     ],
     sliderItems: [
-      {id: 1, title: 'Краски ', subtitle: 'Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!', img: 'slide1.png' },
-      {id: 2, title: 'Слайд №2', subtitle: 'Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!', img: 'slide2.png'},
-      {id: 3, title: 'Изображение', subtitle: 'Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!', img: 'slide3.png'},
-      {id: 4, title: 'Слайд №4', subtitle: 'Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!', img: 'slide2.png'},
+      {
+        id: 1,
+        title: "Краски ",
+        subtitle:
+          "Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!",
+        img: "slide1.png",
+      },
+      {
+        id: 2,
+        title: "Слайд №2",
+        subtitle:
+          "Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!",
+        img: "slide2.png",
+      },
+      {
+        id: 3,
+        title: "Изображение",
+        subtitle:
+          "Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!",
+        img: "slide3.png",
+      },
+      {
+        id: 4,
+        title: "Слайд №4",
+        subtitle:
+          "Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!",
+        img: "slide2.png",
+      },
     ],
   },
   getters: {
@@ -144,15 +171,30 @@ export default createStore({
       else return getters.filterProducts;
     },
     filterProducts(state) {
-      if(state.switcherOptons[0].statys === true){
-        return state.products.filter((prod) => prod.new === true);
-      } else if (state.switcherOptons[1].statys === true){
-        return state.products.filter((prod) => prod.stock === true);
-      } else if (state.switcherOptons[2].statys === true){
-        return state.products.filter((prod) => prod.sale === true);
+      if (
+        state.switcherOptons[1].statys &&
+        state.switcherOptons[2].statys &&
+        state.switcherOptons[0].statys
+      ) {
+        return state.products.filter((prod) => prod.stock && prod.sale && prod.new)
+      } 
+      if (state.switcherOptons[0].statys && state.switcherOptons[1].statys) {
+        return state.products.filter((prod) => prod.new && prod.stock);
       }
-       else return state.products
-    }
+      if (state.switcherOptons[0].statys && state.switcherOptons[2].statys) {
+        return state.products.filter((prod) => prod.new && prod.sale);
+      }
+      if (state.switcherOptons[1].statys && state.switcherOptons[2].statys) {
+        return state.products.filter((prod) => prod.stock && prod.sale);
+      }
+      else if (state.switcherOptons[1].statys) {
+        return state.products.filter((prod) => prod.stock);
+      } else if (state.switcherOptons[2].statys) {
+        return state.products.filter((prod) => prod.sale);
+      } else if (state.switcherOptons[0].statys) {
+        return state.products.filter((prod) => prod.new);
+      } else return state.products;
+    },
   },
   mutations: {
     setSelectedSort(state, newValue) {
@@ -178,8 +220,8 @@ export default createStore({
     clearCart(state) {
       state.cart = [];
       for (let i of state.products) {
-       i.amount = 1;
-       i.cash = 0;
+        i.amount = 1;
+        i.cash = 0;
       }
       this.commit("cartTotalPrice");
       this.commit("setCartCount");
